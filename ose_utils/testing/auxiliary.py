@@ -6,6 +6,7 @@ import os
 
 def fresh_directory(func):
 
+    # TODO: Maybe we could use a context manager here.
     def wrapper_fresh_directory(*args, **kwargs):
 
         dirname = get_testdir()
