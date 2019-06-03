@@ -13,9 +13,11 @@ def get_property_tests(package):
     for _, modname, _ in pkgutil.iter_modules([package.__path__[0]+"/tests"]):
         module = importlib.import_module(package.__package__ + '.'+"tests"+"." + modname)
         for func in inspect.getmembers(module, inspect.isfunction):
+
             if 'test_' not in func[0]:
                 continue
             tests.append(func)
+   
     if tests == []:
         raise Exception("test import doesnt work")
     return tests
